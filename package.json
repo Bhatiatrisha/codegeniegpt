@@ -1,0 +1,59 @@
+{
+  "name": "codegeniegpt",
+  "displayName": "codegenieGPT",
+  "description": "Good extenstion by codegenie",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codegeniegpt.configureLLM",
+        "title": "Configure LLM"
+      },
+      {
+        "command": "codegeniegpt.getCodeSuggestions",
+        "title": "Get Code Suggestions"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "codegenieGPT Configuration",
+      "properties": {
+        "codegeniegpt.llmProvider": {
+          "type": "string",
+          "default": "",
+          "description": "LLM provider (e.g., OpenAI)"
+        },
+        "codegeniegpt.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API key for the configured LLM provider"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.8",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.93.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.11.1"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "openai": "^4.66.1"
+  }
+}
